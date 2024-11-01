@@ -87,9 +87,10 @@ and open the template in the editor.
 
 <div id="notes">
     <p><strong>Footnotes:</strong></p>
-    <p>1. Data collected from various regions in England for demographic analysis.</p>
-    <p>2. Figures are subject to verification and may be updated.</p>
-    <p>3. All demographic groups are represented in this dataset.</p>
+    <p>1. '..' indicates a proportion less than 70%.</p>
+    <p>2. The proportion for a higher geography (e.g. London region) may be suppressed if the proportion is less than 70%, but lower geographies in the same region (e.g. Westminster) may still be presented if 70% or higher (as illustrated above).</p>    
+    <p>3. All figures are illustrative.</p>
+    <p>4. All demographic groups are illustrative.</p>    
 </div>
 
 <script>
@@ -137,7 +138,7 @@ function loadData(type) {
             age: 'Age Group'
         };
         
-        d3.select("#table-title").text(`Demographic Data: ${type.charAt(0).toUpperCase() + type.slice(1)}`);
+        d3.select("#table-title").text(`Proportion of People on Benefit XX by: ${type.charAt(0).toUpperCase() + type.slice(1)} each month`);
         d3.select("#variable-header").text(variableHeaderMap[type]);
     });
 }
