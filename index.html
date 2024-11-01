@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demographic Data</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .tab {
+            display: inline-block;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+        }
+        .active {
+            background-color: blue;
+            color: white;
+            border-bottom: 1px solid transparent;
+        }
+        table {
+            width: auto; /* Change to auto for dynamic width */
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        th {
+            background-color: #f2f2f2; /* Light gray background for headers */
+        }
+        #notes {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .table-title {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tabs">
+    <div class="tab active" data-type="ethnicity">Ethnicity</div>
+    <div class="tab" data-type="gender">Gender</div>
+    <div class="tab" data-type="age">Age Group</div>
+</div>
+
+<div id="table-container">
+    <div id="table-title" class="table-title">Demographic Data: Ethnicity</div> <!-- Default Title -->
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th id="demographic-header">Geography</th> <!-- Updated Header -->
+                <th id="variable-header">Ethnic Group</th> <!-- Default Header -->
+                <th>Jan</th>
+                <th>Feb</th>
+                <th>Mar</th>
+                <th>Apr</th>
+                <th>May</th>
+                <th>Jun</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+</div>
+
+<div id="notes">
+    <p><strong>Footnotes:</strong></p>
+    <p>1. Data collected from various regions in England for demographic analysis.</p>
+    <p>2. Figures are subject to verification and may be updated.</p>
+    <p>3. All demographic groups are represented in this dataset.</p>
+</div>
+
+<script>
+const datasets = {
+    ethnicity: "ethnicity-data.csv",
+    gender: "gender-data.csv",
+    age: "age-data.csv"
+};
+
+let currentType = 'ethnicity';
+
+function loadData(type) {
+    d3.csv(datasets[type]).then(data => {
+        const filteredData = data.map(row => {
+            const monthData = {};
+            for (let month of ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']) {
+                monthData[month] = +row[month] > 70 ? row[month] : "..";
+            }
+            return {
+                Geography: `${row.Country} - ${row['English Region']} - ${row['English Local Authority']}`, // Concatenated value
+                'Demographic Variable': row[type === 'ethnicity' ? 'Ethnic Group' : type === 'gender' ? 'Gender' : 'Age Group'],
+                ...monthData
+            };
+        });
+
+        const tableBody = d3.select("#table-body");
+        tableBody.selectAll("tr").remove();
+        
+        const rows = tableBody.selectAll("tr")
+            .data(filteredData)
+            .enter()
+            .append("tr");
+
+        rows.selectAll("td")
+            .data(d => [d.Geography, d['Demographic Variable'], d.Jan, d.Feb, d.Mar, d.Apr, d.May, d.Jun])
+            .enter()
+            .append("td")
+            .text(d => d)
+            .style("white-space", "nowrap"); // Prevent text wrapping for cells
+        
+        // Update table title and variable header based on the current type
+        const variableHeaderMap = {
+            ethnicity: 'Ethnic Group',
+            gender: 'Gender',
+            age: 'Age Group'
+        };
+        
+        d3.select("#table-title").text(`Demographic Data: ${type.charAt(0).toUpperCase() + type.slice(1)}`);
+        d3.select("#variable-header").text(variableHeaderMap[type]);
+    });
+}
+
+d3.selectAll(".tab").on("click", function() {
+    d3.selectAll(".tab").classed("active", false);
+    d3.select(this).classed("active", true);
+    currentType = d3.select(this).attr("data-type");
+    loadData(currentType);
+});
+
+// Load initial data
+loadData(currentType);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+Country,English Region,English Local Authority,Ethnic Group,Jan,Feb,Mar,Apr,May,Jun
+England,Total,Total,Total,75,80,78,82,85,90
+England,North East,Total,White,70,72,75,68,80,81
+England,North East,Newcastle,White British,75,80,78,82,85,90
+England,North East,Newcastle,Black,65,68,66,70,72,75
+England,North West,Total,White,78,82,79,80,83,86
+England,North West,Manchester,White British,80,85,82,87,88,89
+England,North West,Manchester,Black,60,62,65,67,70,73
+England,Yorkshire and the Humber,Total,White,72,74,76,78,79,81
+England,Yorkshire and the Humber,Leeds,White British,74,76,78,79,81,83
+England,Yorkshire and the Humber,Leeds,Black,58,60,62,63,65,67
+England,East Midlands,Total,White,77,79,76,78,80,82
+England,East Midlands,Nottingham,White British,76,78,75,77,78,80
+England,East Midlands,Nottingham,Black,55,58,60,62,65,67
+England,West Midlands,Total,White,82,84,83,85,88,89
+England,West Midlands,Birmingham,White British,81,83,80,79,82,85
+England,West Midlands,Birmingham,Black,66,68,70,72,74,76
+England,East of England,Total,White,75,77,78,80,81,82
+England,East of England,Cambridge,White British,76,78,79,80,82,84
+England,East of England,Cambridge,Black,54,56,58,60,62,64
+England,London,Total,White,88,90,89,90,88,85
+England,London,Westminster,White British,87,89,88,90,89,88
+England,London,Westminster,Black,70,72,74,76,78,80
+England,South East,Total,White,83,84,85,86,87,89
+England,South East,Brighton,White British,82,83,84,85,86,87
+England,South East,Brighton,Black,58,60,62,64,66,68
+England,South West,Total,White,76,78,79,80,82,85
+England,South West,Bristol,White British,75,77,78,80,81,84
+England,South West,Bristol,Black,55,57,58,60,62,64

@@ -1,0 +1,29 @@
+Country,English Region,English Local Authority,Gender,Jan,Feb,Mar,Apr,May,Jun
+England,Total,Total,Total,70,75,80,78,82,85
+England,North East,Total,Male,72,74,75,77,80,82
+England,North East,Newcastle,Male,76,78,80,82,84,85
+England,North East,Newcastle,Female,65,68,70,73,75,78
+England,North West,Total,Male,78,80,81,82,84,86
+England,North West,Manchester,Male,80,82,85,88,90,89
+England,North West,Manchester,Female,60,62,64,66,68,70
+England,Yorkshire and the Humber,Total,Male,74,76,78,80,82,84
+England,Yorkshire and the Humber,Leeds,Male,77,79,80,82,83,85
+England,Yorkshire and the Humber,Leeds,Female,56,58,60,62,65,67
+England,East Midlands,Total,Male,75,78,79,80,82,84
+England,East Midlands,Nottingham,Male,74,76,78,80,82,83
+England,East Midlands,Nottingham,Female,50,52,54,56,58,60
+England,West Midlands,Total,Male,79,81,82,84,86,88
+England,West Midlands,Birmingham,Male,81,83,85,87,89,90
+England,West Midlands,Birmingham,Female,66,68,70,72,74,76
+England,East of England,Total,Male,77,79,81,83,85,87
+England,East of England,Cambridge,Male,78,80,81,83,84,85
+England,East of England,Cambridge,Female,52,54,56,58,60,62
+England,London,Total,Male,85,87,88,90,88,87
+England,London,Westminster,Male,86,88,89,90,89,88
+England,London,Westminster,Female,72,74,76,78,80,82
+England,South East,Total,Male,84,85,86,87,89,90
+England,South East,Brighton,Male,83,84,86,88,90,89
+England,South East,Brighton,Female,58,60,62,64,66,68
+England,South West,Total,Male,78,80,82,84,86,88
+England,South West,Bristol,Male,76,78,80,82,84,85
+England,South West,Bristol,Female,55,57,59,61,63,65
